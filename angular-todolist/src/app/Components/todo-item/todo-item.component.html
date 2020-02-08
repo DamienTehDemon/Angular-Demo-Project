@@ -2,7 +2,7 @@
 <div [ngClass]="setClasses()">
     <p>
         <!--add event to a method on the component, in this case the change of value event-->
-        <input (change)="onToggle(todo)" type="checkbox">
+        <input (change)="onToggle(todo)" [ngModel]="todo.completed" type="checkbox">
         {{todo.title}}
         <!--add event to a method on the component, in this case the click event-->
         <button (click)="onDelete(todo)" class="deleteButton">Delete</button>
