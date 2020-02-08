@@ -10,8 +10,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   name:string = 'Damien';
-
-  //runs when component initialized, jsut like any other oop 
-  constructor(){
-  }
 }
