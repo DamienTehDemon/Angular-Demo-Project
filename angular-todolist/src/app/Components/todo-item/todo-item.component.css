@@ -1,5 +1,5 @@
 .deleteButton {
-    background: #ff0000;
+  background-color: darkred;
     color: #fff;
     border: none;
     padding: 5px 9px;
@@ -8,7 +8,8 @@
   }
   
   .todo {
-    background: #f4f4f4;
+    background: #000000;
+    color: white;
     padding: 10px;
     border-bottom: 1px #ccc dotted;
   }

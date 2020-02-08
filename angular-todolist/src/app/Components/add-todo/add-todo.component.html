@@ -1,0 +1,6 @@
+<!--event added for submititng-->
+<form class="form" name="form" (ngSubmit)="onSubmit()">
+    <!-- ([]) two way data binding -->
+    <input type="text" name="addText" class="addText" [(ngModel)]="title" placeholder="Add Todo..">
+    <input type="submit" value="Submit" class="submitButton">
+</form>
