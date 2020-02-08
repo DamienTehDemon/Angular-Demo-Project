@@ -1,1 +1,8 @@
-<li>{{ todo.title}}</li>
+<!--[ngClass] allows you to have dynamic classes, the method must return the classes in a array. Can bind them to booleans-->
+<div [ngClass]="setClasses()">
+    <p>
+        <input type="checkbox">
+        {{todo.title}}
+        <button class="deleteButton">X</button>
+    </p>
+</div>
