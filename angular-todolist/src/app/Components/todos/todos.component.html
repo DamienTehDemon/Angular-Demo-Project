@@ -1,2 +1,6 @@
-<app-todo-item *ngFor="let todo of todos" [todo]="todo">
+<app-todo-item 
+    *ngFor="let todo of todos" 
+    [todo]="todo"
+    (deleteTodo)="deleteTodo($event)">
 </app-todo-item>
+<!--() is for event and the $event is the variable being passed to the event from the child class-->

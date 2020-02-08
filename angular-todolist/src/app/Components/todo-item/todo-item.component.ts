@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-//Input allows you to pass through values ^
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+//Input allows you to pass through values ^  EventEmitter and Output to be able to emit upwards to the parent component.
+import { TodoService } from "../../services/todo.service"
 import { Todo } from '../../Models/todo';
 
 @Component({
@@ -11,8 +12,10 @@ import { Todo } from '../../Models/todo';
 export class TodoItemComponent implements OnInit {
   //Allows you to pass through something from the pervious component that is calling this one.
   @Input() todo:Todo
+  //output to parent component, need to catch this in the parent component (Todos)
+  @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter();
 
-  constructor() { }
+  constructor(private todoService:TodoService) { }
 
   ngOnInit(): void {
   }
@@ -25,5 +28,17 @@ export class TodoItemComponent implements OnInit {
        isCompleted: this.todo.completed
      }
      return classes;
+   }
+   
+   onToggle(todo){
+     //Toggle in ui only
+    todo.completed = !todo.completed;
+    //Toggle on server.
+    this.todoService.toggleCompleted(todo).subscribe(todo => console.log(todo));
+   }
+
+   onDelete(todo){
+    //need to access the todos in ui which are in the component above it so we need to emit upwards, see top of file.
+    this.deleteTodo.emit(todo);
    }
 }

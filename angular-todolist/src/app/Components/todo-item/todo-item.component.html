@@ -1,8 +1,10 @@
 <!--[ngClass] allows you to have dynamic classes, the method must return the classes in a array. Can bind them to booleans-->
 <div [ngClass]="setClasses()">
     <p>
-        <input type="checkbox">
+        <!--add event to a method on the component, in this case the change of value event-->
+        <input (change)="onToggle(todo)" type="checkbox">
         {{todo.title}}
-        <button class="deleteButton">X</button>
+        <!--add event to a method on the component, in this case the click event-->
+        <button (click)="onDelete(todo)" class="deleteButton">Delete</button>
     </p>
 </div>
