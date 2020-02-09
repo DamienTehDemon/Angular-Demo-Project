@@ -17,6 +17,7 @@ export class AddTodoComponent implements OnInit {
   onSubmit(){
     const todo =  { title:this.title, completed:false }
     //need to emit this to parent component
+    this.title="";
     this.addTodo.emit(todo);
   }
 }
